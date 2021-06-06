@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             repeatPassword.error = "Repeat password cannot be empty"
             isError = true
         }
-        if (password != repeatPassword) {
+        if (password.text.equals(repeatPassword.text)) {
             password.error = "Passwords don't match"
             repeatPassword.error = "Passwords don't match"
             isError = true
