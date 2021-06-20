@@ -1,27 +1,33 @@
-package com.nikodem.todo
+package com.nikodem.todo.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.switchmaterial.SwitchMaterial
+import com.nikodem.todo.R
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainFragment : Fragment(R.layout.fragment_main) {
 
-        val submitButton = findViewById<Button>(R.id.submit_button)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val submitButton = view.findViewById<Button>(R.id.submit_button)
         submitButton.setOnClickListener { onSubmitButtonClick() }
     }
 
     private fun onSubmitButtonClick() {
-        val firstName = findViewById<EditText>(R.id.first_name)
-        val lastName = findViewById<EditText>(R.id.last_name)
-        val username = findViewById<EditText>(R.id.username)
-        val password = findViewById<EditText>(R.id.password)
-        val repeatPassword = findViewById<EditText>(R.id.repeat_password)
-        val isAdult = findViewById<SwitchMaterial>(R.id.adult_switch).isChecked
+        val firstName = requireView().findViewById<EditText>(R.id.first_name)
+        val lastName = requireView().findViewById<EditText>(R.id.last_name)
+        val username = requireView().findViewById<EditText>(R.id.username)
+        val password = requireView().findViewById<EditText>(R.id.password)
+        val repeatPassword = requireView().findViewById<EditText>(R.id.repeat_password)
+        val isAdult = requireView().findViewById<SwitchMaterial>(R.id.adult_switch).isChecked
         var isError = false;
 
         if (firstName.text.isEmpty()) {
@@ -36,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             username.error = "Username cannot be empty"
             isError = true
         }
-        if (username.text.length < 3){
+        if (username.text.length < 3) {
             username.error = "Username must have minimum 3 letters"
             isError = true
         }
@@ -53,15 +59,17 @@ class MainActivity : AppCompatActivity() {
             repeatPassword.error = "Passwords don't match"
             isError = true
         }
-        if (!isAdult){
+        if (!isAdult) {
             isError = true
         }
 
         if (isError) {
-            Toast.makeText(this, "Fill in required data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Fill in required data", Toast.LENGTH_SHORT).show()
         } else {
-            val mainLayout = findViewById<LinearLayout>(R.id.main_layout)
+            val mainLayout = requireView().findViewById<LinearLayout>(R.id.main_layout)
             Snackbar.make(mainLayout, "Thank you", Snackbar.LENGTH_SHORT).show()
+
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToSecondFragment())
         }
     }
 }
