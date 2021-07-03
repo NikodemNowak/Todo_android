@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.nikodem.todo.ui.SecondFragment"
+        android:name="com.nikodem.todo.ui.ssecond.SecondFragment"
         tools:layout="@layout/fragment_second"
         android:label="SecondFragment" />
 </navigation>

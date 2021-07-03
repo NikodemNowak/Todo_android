@@ -39,7 +39,7 @@ data class Breed (
     val lifeSpan: String,
 
     val indoor: Long,
-    val lap: Long,
+    val lap: Long?,
 
     @Json(name = "alt_names")
     val altNames: String,
