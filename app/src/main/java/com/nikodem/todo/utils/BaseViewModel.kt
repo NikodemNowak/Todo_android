@@ -3,6 +3,7 @@ package com.nikodem.todo.utils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.hadilq.liveevent.LiveEvent
 
 abstract class BaseViewModel<STATE : ViewState>(
     private val initialState: STATE
@@ -15,11 +16,21 @@ abstract class BaseViewModel<STATE : ViewState>(
     val currentState: STATE
         get() = viewState.value!!
 
+    val showToastEvent = LiveEvent<String>()
+    val showSnackbarEvent = LiveEvent<String>()
 
-    fun updateViewState(update: (STATE) -> STATE) {
+    protected fun updateViewState(update: (STATE) -> STATE) {
         val newState = update(_viewState.value!!)
         if (newState != _viewState.value!!) {
             _viewState.value = newState
         }
     }
+}
+
+fun LiveEvent<Unit>.fireEvent() {
+    value = Unit
+}
+
+fun <T> LiveEvent<T>.fireEvent(t: T) {
+    value = t
 }

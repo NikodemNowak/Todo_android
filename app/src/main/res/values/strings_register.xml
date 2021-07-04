@@ -8,4 +8,10 @@
     <string name="submit">Submit</string>
 
     <string name="first_name_error">"First name cannot be empty"</string>
+    <string name="last_name_error">"Last name cannot be empty"</string>
+    <string name="username_error_empty">"Username cannot be empty"</string>
+    <string name="username_error_length">"Username must have at least 3 characters"</string>
+    <string name="password_error">"Password cannot be empty"</string>
+    <string name="repeat_password_error">"Repeat password cannot be empty"</string>
+    <string name="passwords_error">"Passwords don't match"</string>
 </resources>

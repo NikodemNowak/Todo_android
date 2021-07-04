@@ -27,8 +27,8 @@ class SecondFragmentViewModel(
                 it.copy(
                     catUrl = cat.url,
                     id = cat.id,
-                    width = cat.width,
-                    height = cat.height,
+                    width = cat.width.toString(),
+                    height = cat.height.toString(),
                     isLoading = false
                 )
             }
@@ -40,8 +40,8 @@ data class SecondFragmentViewState(
     val catUrl: String = "",
     val x: Int = 0,
     val id: String = "",
-    val width: Long = 0,
-    val height: Long = 0,
+    val width: String = "",
+    val height: String = "",
     override
     val isLoading: Boolean = false
 ) : ViewState
