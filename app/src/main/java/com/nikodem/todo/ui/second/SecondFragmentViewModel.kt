@@ -1,4 +1,4 @@
-package com.nikodem.todo.ui.ssecond
+package com.nikodem.todo.ui.second
 
 import androidx.lifecycle.viewModelScope
 import com.nikodem.todo.repositories.CatRepository

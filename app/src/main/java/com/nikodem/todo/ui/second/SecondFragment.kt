@@ -1,4 +1,4 @@
-package com.nikodem.todo.ui.ssecond
+package com.nikodem.todo.ui.second
 
 import android.os.Bundle
 import android.view.View

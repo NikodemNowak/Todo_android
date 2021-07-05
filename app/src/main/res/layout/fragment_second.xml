@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.nikodem.todo.ui.ssecond.SecondFragmentViewModel" />
+            type="com.nikodem.todo.ui.second.SecondFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
