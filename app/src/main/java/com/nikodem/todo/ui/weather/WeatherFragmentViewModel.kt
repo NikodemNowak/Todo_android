@@ -33,7 +33,6 @@ class WeatherFragmentViewModel(
                 )
             }
         }
-        Timber.d(currentState.temperature)
     }
 }
 

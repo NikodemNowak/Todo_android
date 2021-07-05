@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/weatherFragment">
+    app:startDestination="@id/jokesFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -23,4 +23,8 @@
         android:id="@+id/weatherFragment"
         android:name="com.nikodem.todo.ui.weather.WeatherFragment"
         android:label="WeatherFragment" />
+    <fragment
+        android:id="@+id/jokesFragment"
+        android:name="com.nikodem.todo.ui.jokes.JokesFragment"
+        android:label="JokesFragment" />
 </navigation>

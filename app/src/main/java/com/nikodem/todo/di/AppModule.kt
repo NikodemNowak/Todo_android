@@ -1,9 +1,7 @@
 package com.nikodem.todo.di
 
-import com.nikodem.todo.repositories.CatApiRepository
-import com.nikodem.todo.repositories.CatRepository
-import com.nikodem.todo.repositories.WeatherApiRepository
-import com.nikodem.todo.repositories.WeatherRepository
+import com.nikodem.todo.repositories.*
+import com.nikodem.todo.ui.jokes.JokesFragmentViewModel
 import com.nikodem.todo.ui.main.MainFragmentViewModel
 import com.nikodem.todo.ui.second.SecondFragmentViewModel
 import com.nikodem.todo.ui.weather.WeatherFragmentViewModel
@@ -48,6 +46,18 @@ val appModule = module {
     single {
         WeatherFragmentViewModel(
             weatherRepository = get()
+        )
+    }
+
+    single<JokesRepository> {
+        JokesApiRepository(
+            jokesApiService = get()
+        )
+    }
+
+    single {
+        JokesFragmentViewModel(
+            jokesRepository = get()
         )
     }
 }
